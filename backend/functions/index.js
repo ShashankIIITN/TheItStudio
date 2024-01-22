@@ -8,7 +8,8 @@ import serverless from "serverless-http"
 
 dotenv.config();
 
-const app = express();
+const app = serverless(express());
+
 
 
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
@@ -25,5 +26,5 @@ mongoose.connect(CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: tr
     .then(app.listen(PORT, () => console.log(`Server is running on port : ${PORT}`)))
     .catch((error) => console.log(error.message));
 
-serverless(app);
 
+    
