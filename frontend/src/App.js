@@ -7,6 +7,8 @@ import "./css/app.css";
 const url = process.env.REACT_APP_URL || "http://localhost:5000/"
 
 function App() {
+
+  const [isLoading, setisLoading] = useState(false)
   const [selectedRows, setSelectedRows] = useState([]);
 
   const [open, setopen] = useState(false)
@@ -82,7 +84,7 @@ function App() {
     let sendingData = []
     selectedRows.sort();
 
-    if(selectedRows.length == 0){
+    if (selectedRows.length == 0) {
       alert("Please select rows")
       return;
     }
@@ -93,7 +95,7 @@ function App() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({selectedRows:selectedRows})
+        body: JSON.stringify({ selectedRows: selectedRows })
       })
 
       const da = await res.json();
@@ -145,6 +147,8 @@ function App() {
 
   const fetchData = async () => {
 
+    setisLoading(true);
+
     try {
 
       const res = await fetch(`${url}getData`);
@@ -153,9 +157,11 @@ function App() {
 
       setData(data);
     } catch (err) {
-      console.log(err);
+      alert(err)
     }
+    setisLoading(false)
   }
+
 
   useEffect(() => {
     fetchData();
@@ -164,14 +170,14 @@ function App() {
 
   return (
     <div className="App">
-      <div className="App_mainbody">
+      {isLoading ? <h1>Starting Backend Please Wait...</h1> : <div className="App_mainbody">
         <Form setFormData={setFormData} data={data} open={open} setopen={setopen} formData={formData} clearForm={clearForm} saveData={saveData} handleChange={handleChange} />
         <Table setopen={setopen} data={data} selectedRows={selectedRows} setSelectedRows={setSelectedRows} setData={setData} formData={formData} setFormData={setFormData} />
         <div className="btngroup">
           <button type="button" className="addBtn" onClick={() => { setopen(!open) }}>Add Data</button>
           <button type="button" className="sendBtn" onClick={handleSendData}>Send Data</button>
         </div>
-      </div>
+      </div>}
     </div>
   );
 }
