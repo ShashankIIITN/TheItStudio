@@ -1,0 +1,21 @@
+.table {
+    border: 2px solid red;
+    padding: 1px;
+    table {
+        border: 2px solid red;
+        border-collapse: collapse;
+
+        th {
+            border: 2px solid black;
+            padding: 5px;
+            margin: auto;
+        }
+
+        td {
+            border: 2px solid black;
+            padding: 5px;
+            text-align: center;
+
+        }
+    }
+}

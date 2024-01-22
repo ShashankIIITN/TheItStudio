@@ -1,0 +1,18 @@
+.table {
+  border: 2px solid red;
+  padding: 1px;
+}
+.table table {
+  border: 2px solid red;
+  border-collapse: collapse;
+}
+.table table th {
+  border: 2px solid black;
+  padding: 5px;
+  margin: auto;
+}
+.table table td {
+  border: 2px solid black;
+  padding: 5px;
+  text-align: center;
+}

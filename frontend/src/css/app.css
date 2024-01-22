@@ -1,0 +1,25 @@
+body {
+  margin: 0%;
+  padding: 0%;
+  overflow: hidden;
+}
+
+.App {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  overflow-x: hidden;
+}
+.App_mainbody {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  width: 50%;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 10%;
+  margin-top: 10px;
+}

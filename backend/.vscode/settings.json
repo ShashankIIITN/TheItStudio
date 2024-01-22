@@ -1,0 +1,8 @@
+{
+    "html.autoClosingTags": false,
+    "html.autoCreateQuotes": false,
+    "html.format.enable": false,
+    "html.hover.documentation": false,
+    "html.hover.references": false,
+    "html.validate.scripts": false
+}
