@@ -1,9 +1,7 @@
 .table {
-  border: 2px solid red;
   padding: 1px;
 }
 .table table {
-  border: 2px solid red;
   border-collapse: collapse;
 }
 .table table th {

@@ -82,6 +82,11 @@ function App() {
     let sendingData = []
     selectedRows.sort();
 
+    if(selectedRows.length == 0){
+      alert("Please select rows")
+      return;
+    }
+
     try {
       const res = await fetch(`${url}send-mail`, {
         method: 'POST',
